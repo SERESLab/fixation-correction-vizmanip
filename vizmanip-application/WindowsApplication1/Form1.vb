@@ -1,6 +1,8 @@
 ﻿Public Class Form1
     Dim tableData As New Dictionary(Of Integer, String())
     Dim rowCount As Integer = 0
+    Dim timer_has_ticked As Boolean = False
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             PictureBox1.Load(OpenFileDialog1.FileName)
@@ -104,6 +106,12 @@
                     End If
                 End If
                 If CheckBox2.Checked = True Then
+                    If CheckBox5.Checked = True Then
+                        REM this doesnt work. maybe one day it will
+                        Timer1.Enabled = True
+                        Timer1.Start()
+                        timer_has_ticked = False
+                    End If
                     g.DrawEllipse(p_man, CInt(currentRow(x_man_cor) - 2), CInt(currentRow(y_man_cor) - 2), 4, 4)
                     g.DrawLine(p2_man, CSng(currentRow(x_man_cor)), CSng(currentRow(y_man_cor)), CSng(nextRow(x_man_cor)), CSng(nextRow(y_man_cor)))
                     If CheckBox4.Checked = True Then
@@ -127,6 +135,10 @@
 
     End Sub
     Private Sub button4_click(sender As Object, e As EventArgs) Handles Button4.Click
+        PictureBox1.Refresh()
         display_points(tableData, rowCount)
+    End Sub
+    Private Sub timer_tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        timer_has_ticked = True
     End Sub
 End Class
