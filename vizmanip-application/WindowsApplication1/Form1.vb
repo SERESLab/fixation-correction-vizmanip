@@ -18,7 +18,7 @@
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click REM load Data button
         If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(OpenFileDialog2.FileName)
                 MyReader.TextFieldType = FileIO.FieldType.Delimited
@@ -44,6 +44,12 @@
                     End Try
                 End While
                 REM MsgBox(rowCount)
+                rowCount = tableData.Count
+                REM MsgBox(rowCount)
+                NumericUpDown3.Minimum = 0
+                NumericUpDown3.Maximum = rowCount
+                NumericUpDown4.Minimum = 0
+                NumericUpDown4.Maximum = rowCount
                 display_points(tableData, rowCount)
             End Using
         End If
@@ -73,61 +79,68 @@
         Dim g As System.Drawing.Graphics
         Dim f As New System.Drawing.Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold)
         Dim mybrush As New SolidBrush(Color.Black)
+        Dim pathStart As Integer
+        Dim pathEnd As Integer
         g = PictureBox1.CreateGraphics
-
-        For counter As Integer = 0 To rowCount - 1
-            currentRow = tableData.Values(counter)
+        If tableData.Count > 0 Then
+            currentRow = tableData.Values(0)
             REM find header data
-            If counter = 0 Then
-                Dim fieldCounter As Integer = 0
-                For Each currentField In currentRow
-                    If currentField = "x" Then
-                        x = fieldCounter
-                    ElseIf currentField = "y" Then
-                        y = fieldCounter
-                    ElseIf currentField = "x-man-cor" Then
-                        x_man_cor = fieldCounter
-                    ElseIf currentField = "y-man-cor" Then
-                        y_man_cor = fieldCounter
-                    ElseIf currentField = "x-auto-cor" Then
-                        x_auto_cor = fieldCounter
-                    ElseIf currentField = "y-auto-cor" Then
-                        y_auto_cor = fieldCounter
-                    End If
-                    fieldCounter += 1
-                Next
-            ElseIf counter < rowCount - 1
-                nextRow = tableData.Values(counter + 1)
-                If CheckBox1.Checked = True Then
-                    g.DrawEllipse(p, CInt(currentRow(x) - 2), CInt(currentRow(y) - 2), 4, 4)
-                    g.DrawLine(p2, CSng(currentRow(x)), CSng(currentRow(y)), CSng(nextRow(x)), CSng(nextRow(y)))
-                    If CheckBox4.Checked = True Then
-                        g.DrawString(CStr(counter), f, mybrush, CSng(currentRow(x)), CSng(currentRow(y)))
-                    End If
+            Dim fieldCounter As Integer = 0
+            For Each currentField In currentRow
+                If currentField = "x" Then
+                    x = fieldCounter
+                ElseIf currentField = "y" Then
+                    y = fieldCounter
+                ElseIf currentField = "x-man-cor" Then
+                    x_man_cor = fieldCounter
+                ElseIf currentField = "y-man-cor" Then
+                    y_man_cor = fieldCounter
+                ElseIf currentField = "x-auto-cor" Then
+                    x_auto_cor = fieldCounter
+                ElseIf currentField = "y-auto-cor" Then
+                    y_auto_cor = fieldCounter
                 End If
-                If CheckBox2.Checked = True Then
-                    If CheckBox5.Checked = True Then
-                        REM this doesnt work. maybe one day it will
-                        Timer1.Enabled = True
-                        Timer1.Start()
-                        timer_has_ticked = False
-                    End If
-                    g.DrawEllipse(p_man, CInt(currentRow(x_man_cor) - 2), CInt(currentRow(y_man_cor) - 2), 4, 4)
-                    g.DrawLine(p2_man, CSng(currentRow(x_man_cor)), CSng(currentRow(y_man_cor)), CSng(nextRow(x_man_cor)), CSng(nextRow(y_man_cor)))
-                    If CheckBox4.Checked = True Then
-                        g.DrawString(CStr(counter), f, mybrush, CSng(currentRow(x_man_cor)), CSng(currentRow(y_man_cor)))
-
-                    End If
-                End If
-                If CheckBox3.Checked = True Then
-                    g.DrawEllipse(p_auto, CInt(currentRow(x_auto_cor) - 2), CInt(currentRow(y_auto_cor) - 2), 4, 4)
-                    g.DrawLine(p2_auto, CSng(currentRow(x_auto_cor)), CSng(currentRow(y_auto_cor)), CSng(nextRow(x_auto_cor)), CSng(nextRow(y_auto_cor)))
-                    If CheckBox4.Checked = True Then
-                        g.DrawString(CStr(counter), f, mybrush, CSng(currentRow(x_auto_cor)), CSng(currentRow(y_auto_cor)))
-                    End If
-                End If
+                fieldCounter += 1
+            Next
+            If NumericUpDown3.Value = 0 Or NumericUpDown4.Value = 0 Or NumericUpDown3.Value > NumericUpDown4.Value Then
+                pathStart = 1
+                pathEnd = rowCount - 1
+            Else
+                pathStart = NumericUpDown3.Value
+                pathEnd = NumericUpDown4.Value
             End If
-        Next
+            For counter As Integer = pathStart To pathEnd
+                currentRow = tableData.Values(counter)
+                If counter < rowCount - 1 And counter > 0 Then
+                    nextRow = tableData.Values(counter + 1)
+                    REM Original
+                    If CheckBox1.Checked = True Then
+                        g.DrawEllipse(p, CInt(currentRow(x) - 2), CInt(currentRow(y) - 2), 4, 4)
+                        g.DrawLine(p2, CSng(currentRow(x)), CSng(currentRow(y)), CSng(nextRow(x)), CSng(nextRow(y)))
+                        If CheckBox4.Checked = True Then
+                            g.DrawString(CStr(counter), f, mybrush, CSng(currentRow(x)), CSng(currentRow(y)))
+                        End If
+                    End If
+                    REM Manual Corrections
+                    If CheckBox2.Checked = True Then
+                        g.DrawEllipse(p_man, CInt(currentRow(x_man_cor) - 2) + NumericUpDown2.Value, CInt(currentRow(y_man_cor) - 2) + NumericUpDown1.Value, 4, 4)
+                        g.DrawLine(p2_man, CSng(currentRow(x_man_cor)) + NumericUpDown2.Value, CSng(currentRow(y_man_cor)) + NumericUpDown1.Value, CSng(nextRow(x_man_cor)) + NumericUpDown2.Value, CSng(nextRow(y_man_cor)) + NumericUpDown1.Value)
+                        If CheckBox4.Checked = True Then
+                            g.DrawString(CStr(counter), f, mybrush, CSng(currentRow(x_man_cor)) + NumericUpDown2.Value, CSng(currentRow(y_man_cor)) + NumericUpDown1.Value)
+
+                        End If
+                    End If
+                    REM Auto Corrections
+                    If CheckBox3.Checked = True Then
+                        g.DrawEllipse(p_auto, CInt(currentRow(x_auto_cor) - 2), CInt(currentRow(y_auto_cor) - 2), 4, 4)
+                        g.DrawLine(p2_auto, CSng(currentRow(x_auto_cor)), CSng(currentRow(y_auto_cor)), CSng(nextRow(x_auto_cor)), CSng(nextRow(y_auto_cor)))
+                        If CheckBox4.Checked = True Then
+                            g.DrawString(CStr(counter), f, mybrush, CSng(currentRow(x_auto_cor)), CSng(currentRow(y_auto_cor)))
+                        End If
+                    End If
+                End If
+            Next
+        End If
         REM PictureBox1.Refresh()
     End Sub
 
@@ -140,5 +153,21 @@
     End Sub
     Private Sub timer_tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         timer_has_ticked = True
+    End Sub
+    Private Sub numericUpDown3_click(sender As Object, e As EventArgs) Handles NumericUpDown3.Click
+        PictureBox1.Refresh()
+        display_points(tableData, rowCount)
+    End Sub
+    Private Sub numericUpDown4_click(sender As Object, e As EventArgs) Handles NumericUpDown4.Click
+        PictureBox1.Refresh()
+        display_points(tableData, rowCount)
+    End Sub
+    Private Sub numericUpDown2_click(sender As Object, e As EventArgs) Handles NumericUpDown2.Click
+        PictureBox1.Refresh()
+        display_points(tableData, rowCount)
+    End Sub
+    Private Sub numericUpDown1_click(sender As Object, e As EventArgs) Handles NumericUpDown1.Click
+        PictureBox1.Refresh()
+        display_points(tableData, rowCount)
     End Sub
 End Class

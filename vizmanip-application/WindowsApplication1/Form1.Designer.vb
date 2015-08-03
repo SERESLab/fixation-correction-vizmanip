@@ -28,6 +28,10 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
+        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,18 +43,13 @@ Partial Class Form1
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -90,7 +89,6 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.AutoScroll = True
-        Me.Panel1.Controls.Add(Me.CheckBox5)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.NumericUpDown4)
@@ -112,6 +110,38 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1063, 538)
         Me.Panel1.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(693, 31)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(16, 13)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "to"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(666, 5)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(51, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Selection"
+        '
+        'NumericUpDown4
+        '
+        Me.NumericUpDown4.Location = New System.Drawing.Point(715, 26)
+        Me.NumericUpDown4.Name = "NumericUpDown4"
+        Me.NumericUpDown4.Size = New System.Drawing.Size(37, 20)
+        Me.NumericUpDown4.TabIndex = 14
+        '
+        'NumericUpDown3
+        '
+        Me.NumericUpDown3.Location = New System.Drawing.Point(653, 26)
+        Me.NumericUpDown3.Name = "NumericUpDown3"
+        Me.NumericUpDown3.Size = New System.Drawing.Size(34, 20)
+        Me.NumericUpDown3.TabIndex = 13
         '
         'Button4
         '
@@ -212,48 +242,6 @@ Partial Class Form1
         '
         Me.OpenFileDialog2.FileName = "OpenFileDialog2"
         '
-        'NumericUpDown3
-        '
-        Me.NumericUpDown3.Location = New System.Drawing.Point(653, 26)
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(34, 20)
-        Me.NumericUpDown3.TabIndex = 13
-        '
-        'NumericUpDown4
-        '
-        Me.NumericUpDown4.Location = New System.Drawing.Point(715, 26)
-        Me.NumericUpDown4.Name = "NumericUpDown4"
-        Me.NumericUpDown4.Size = New System.Drawing.Size(37, 20)
-        Me.NumericUpDown4.TabIndex = 14
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(666, 5)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Selection"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(693, 31)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(16, 13)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "to"
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(797, 7)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(53, 17)
-        Me.CheckBox5.TabIndex = 17
-        Me.CheckBox5.Text = "Delay"
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
         'Timer1
         '
         Me.Timer1.Interval = 250
@@ -269,10 +257,10 @@ Partial Class Form1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -297,6 +285,5 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents NumericUpDown4 As NumericUpDown
     Friend WithEvents NumericUpDown3 As NumericUpDown
-    Friend WithEvents CheckBox5 As CheckBox
     Friend WithEvents Timer1 As Timer
 End Class
