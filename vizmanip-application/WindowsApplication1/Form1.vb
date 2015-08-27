@@ -1,13 +1,43 @@
-﻿Public Class Form1
+﻿Imports System
+Imports System.Text
+Public Class Form1
     Dim tableData As New Dictionary(Of Integer, String())
     Dim rowCount As Integer = 0
     Dim timer_has_ticked As Boolean = False
+    Dim x_man_cor As Integer
+    Dim y_man_cor As Integer
+    Dim openFilename As String
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             PictureBox1.Load(OpenFileDialog1.FileName)
         End If
 
+    End Sub
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        SaveFileDialog1.ShowDialog()
+        If SaveFileDialog1.FileName <> "" Then
+            Dim sw As New System.IO.StreamWriter(SaveFileDialog1.FileName)
+            Dim outputString As New String("")
+            Dim currentRow As String()
+            rowCount = tableData.Count()
+            For i As Integer = 0 To rowCount - 1
+                currentRow = tableData.Values(i)
+                currentRow(x_man_cor) = NumericUpDown2.Value
+                currentRow(y_man_cor) = NumericUpDown1.Value
+
+                For Each currentField In currentRow
+                    outputString = outputString & currentField
+                    outputString = outputString & ","
+                Next
+                Dim sb As New StringBuilder()
+                sb.AppendLine()
+                outputString = outputString & sb.ToString()
+            Next
+            sw.Write(outputString)
+            sw.Close()
+            openFile(openFilename)
+        End If
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
@@ -17,10 +47,36 @@
     Private Sub OpenFileDialog2_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog2.FileOk
 
     End Sub
-
+    Private Sub openFile(filename)
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(CStr(filename))
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+            Dim currentRow As String()
+            tableData.Clear()
+            rowCount = 0
+            While Not MyReader.EndOfData
+                Try
+                    currentRow = MyReader.ReadFields()
+                    tableData.Add(rowCount, currentRow)
+                    rowCount += 1
+                Catch ex As Microsoft.VisualBasic.
+                            FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message &
+                    "is not valid and will be skipped.")
+                End Try
+            End While
+            rowCount = tableData.Count
+            NumericUpDown3.Minimum = 0
+            NumericUpDown3.Maximum = rowCount
+            NumericUpDown4.Minimum = 0
+            NumericUpDown4.Maximum = rowCount
+            display_points(tableData, rowCount)
+        End Using
+    End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click REM load Data button
         If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(OpenFileDialog2.FileName)
+                openFilename = CStr(OpenFileDialog2.FileName)
                 MyReader.TextFieldType = FileIO.FieldType.Delimited
                 MyReader.SetDelimiters(",")
                 Dim currentRow As String()
@@ -66,8 +122,6 @@
         Dim nextRow As String()
         Dim x As Integer
         Dim y As Integer
-        Dim x_man_cor As Integer
-        Dim y_man_cor As Integer
         Dim x_auto_cor As Integer
         Dim y_auto_cor As Integer
         Dim p As New System.Drawing.Pen(Color.Red, 4)
