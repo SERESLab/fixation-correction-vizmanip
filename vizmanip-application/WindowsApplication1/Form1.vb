@@ -125,11 +125,11 @@ Public Class Form1
         Dim x_auto_cor As Integer
         Dim y_auto_cor As Integer
         Dim p As New System.Drawing.Pen(Color.Red, 4)
-        Dim p2 As New System.Drawing.Pen(Color.Blue, 1)
+        Dim p2 As New System.Drawing.Pen(Color.Red, 1)
         Dim p_man As New System.Drawing.Pen(Color.Blue, 4)
-        Dim p2_man As New System.Drawing.Pen(Color.Red, 1)
+        Dim p2_man As New System.Drawing.Pen(Color.Blue, 1)
         Dim p_auto As New System.Drawing.Pen(Color.Green, 4)
-        Dim p2_auto As New System.Drawing.Pen(Color.Orange, 1)
+        Dim p2_auto As New System.Drawing.Pen(Color.Green, 1)
         Dim g As System.Drawing.Graphics
         Dim f As New System.Drawing.Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold)
         Dim mybrush As New SolidBrush(Color.Black)
