@@ -1,0 +1,35 @@
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+c:\users\chris\documents\visual studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\Chris\Documents\GitHub\fixation-correction-vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.CoreCompileInputs.cache
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.mPoint.resources
+D:\REPOS\Vizmanip\vizmanip-application\WindowsApplication1\obj\Debug\WindowsApplication1.Form2.resources
